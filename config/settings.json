@@ -2,7 +2,8 @@
     "openWeatherMapAPIKey": "PLACE KEY HERE",
     "saltStackAPIKey": "",
     "zipCode": "29483",
-    "state": "SC",
+    "state": "",
+    "coords": "33.0975,-80.1753",
     "units": "imperial",
     "alertEventTypeKeyWords": ["Hurricane", "Tropical", "Rip", "Flood"]
 }

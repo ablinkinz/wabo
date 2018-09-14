@@ -55,5 +55,23 @@ let's check to see if we have any current alerts in our area, in verbose mode
 
 [ablinkin]:                         ./img/ablinkin.png
 
+## Settings Explained:
+* "openWeatherMapAPIKey": "PLACE KEY HERE"
+    * Currently this is not used. Later it will allow grabbing weather forecasts
+* "saltStackAPIKey": ""
+    * Currently this isn't used. It will be later used for the orchestration examples
+* "zipCode": "29483"
+    * Will be required for openweather
+* "state": ""
+    * if you set the two letter state code (South Carolina would be SC) it will get the
+    alerts for the entire state. If left blank will default to the coordinates
+* "coords": "33.0975,-80.1753"
+    * This will narrow down the alerts to your area. If left blank they will be acquired 
+    from your IP
+* "units": "imperial"
+    * Imperial or Metric
+* "alertEventTypeKeyWords": ["Hurricane", "Tropical", "Rip", "Flood"]
+    * A list of key words you want to trigger on
+
 ## Who Uses WABO:
 Just me I suppose

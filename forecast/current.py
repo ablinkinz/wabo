@@ -11,7 +11,8 @@ import requests
 
 class GetOpenWeatherCurrentWeather:
     """
-    if you want to import and call this in your own script you could call this like 
+    if you want to import and call this in your own script you could call this like
+    this is currently not used 2018.09.14
     >>> currentConditions = getCurrentWeather()
     >>> cityName = currentConditions.results()["name"]
     >>> print(cityName)
@@ -39,9 +40,17 @@ class GetWeatherDotGovAlerts:
     def __init__(self):
         self.settings = config.getSettings()
         self.state = self.settings["state"]
+        if self.state == "":
+            self.coord = self.settings["coord"]
+            if self.coord == "":
+                import geo
+                self.coord = geo.getCoord()
 
     def results(self):
-        url = "https://api.weather.gov/alerts/active?status=actual&message_type=alert&area=%s" % self.state
+        if self.coord:
+            url = "https://api.weather.gov/alerts/active?status=actual&message_type=alert&point=%s" % self.coord
+        else:
+            url = "https://api.weather.gov/alerts/active?status=actual&message_type=alert&area=%s" % self.state
         response = requests.get(url, headers={'User-agent': 'Mozilla/5.0'})
         jsonResults = response.json()
         return jsonResults
