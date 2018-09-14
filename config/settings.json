@@ -1,9 +1,12 @@
 {
     "openWeatherMapAPIKey": "PLACE KEY HERE",
-    "saltStackAPIKey": "",
+    "saltStackMaster": "192.168.1.100",
+    "saltStackUser": "baduser",
+    "saltStackPass": "veryB@ddp@55",
+    "saltStackStateToRun": "Move_To_Cloud",
     "zipCode": "29483",
     "state": "",
-    "coords": "33.0975,-80.1753",
+    "coord": "33.0975,-80.1753",
     "units": "imperial",
     "alertEventTypeKeyWords": ["Hurricane", "Tropical", "Rip", "Flood"]
 }
