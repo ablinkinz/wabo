@@ -10,7 +10,7 @@ The idea was to move my workload to the cloud when there are hurricane alerts in
 As time goes on I will add some orchestration examples and some location self awareness logic.
 
 <p align="center">
-  <img src="./img/getAlertExists" alt="WABO Example"
+  <img src="./img/getAlertExists.png" alt="WABO Example"
        width="512" height="512">
 </p>
 
