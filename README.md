@@ -53,13 +53,23 @@ let's check to see if we have any current alerts in our area, in verbose mode
        width="700" height="350">
 </p>
 
+to fire off as a "process" and loop based on cadence:
+```bash
+python orchestrate.py
+```
 [ablinkin]:                         ./img/ablinkin.png
 
 ## Settings Explained:
 * "openWeatherMapAPIKey": "PLACE KEY HERE"
     * Currently this is not used. Later it will allow grabbing weather forecasts
-* "saltStackAPIKey": ""
-    * Currently this isn't used. It will be later used for the orchestration examples
+* "saltStackMaster": ""
+    * The salt master api to connect to
+* "saltStackUser": ""
+    * The salt master api username
+* "saltStackPass": ""
+    * The salt master api password
+* "saltStackStateToRun": ""
+    * The salt state to execute to do the "work"
 * "zipCode": "29483"
     * Will be required for openweather
 * "state": ""
@@ -72,6 +82,8 @@ let's check to see if we have any current alerts in our area, in verbose mode
     * Imperial or Metric
 * "alertEventTypeKeyWords": ["Hurricane", "Tropical", "Rip", "Flood"]
     * A list of key words you want to trigger on
+* "cadence":
+    * The frequency to check for new alerts (in minutes)
 
 ## Who Uses WABO:
 Just me I suppose

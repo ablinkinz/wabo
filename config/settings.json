@@ -8,5 +8,6 @@
     "state": "",
     "coord": "33.0975,-80.1753",
     "units": "imperial",
-    "alertEventTypeKeyWords": ["Hurricane", "Tropical", "Rip", "Flood"]
+    "alertEventTypeKeyWords": ["Hurricane", "Tropical", "Rip", "Flood"],
+    "cadence": 1
 }

@@ -6,6 +6,8 @@ alerts.getAlertExists returns true
 
 import alerts
 import requests
+import time
+import logging
 import config
 
 
@@ -21,7 +23,7 @@ def doWork():
     saltStackStateToRun = settings["saltStackStateToRun"]
     alertsRaw = alerts.getAlertExists(True)
     if alertsRaw["alertExists"]:
-        print("Firing off Salt State: ", saltStackStateToRun)
+        logging.info("Firing off Salt State since I see an alert")
         session = requests.Session()
         session.post('http://' + saltStackMaster + ':8000/login', json={
             'username': saltStackUser,
@@ -37,3 +39,11 @@ def doWork():
         return resp
     else:
         return {"status": "nothing to do"}
+
+logging.basicConfig(level=logging.INFO)
+while 1 > 0:
+    settings = config.getSettings()
+    cadence = settings["cadence"]
+    results = doWork()
+    logging.info("sleeping")
+    time.sleep(cadence * 60)
