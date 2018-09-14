@@ -1,6 +1,6 @@
 # W.A.B.O
 Weather Alert Based Orchestration
-<img src="https://1drv.ms/u/s!AhVY3uu50OQ-icIv2G6E0JA7TqTF0A" align="right"
+<img src="./img/ablinkin.png" align="right"
      title="Ablinkin logo" width="512" height="512">
 
 WABO is a tool designed to be a starting point for creating complex orchestrations
