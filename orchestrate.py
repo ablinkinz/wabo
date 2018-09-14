@@ -15,7 +15,7 @@ def doWork():
     :return:
     """
     settings = config.getSettings()
-    saltStacMaster = settings["saltStackMaster"]
+    saltStackMaster = settings["saltStackMaster"]
     saltStackUser = settings["saltStackUser"]
     saltStackPass = settings["saltStackPass"]
     saltStackStateToRun = settings["saltStackStateToRun"]
@@ -23,12 +23,12 @@ def doWork():
     if alertsRaw["alertExists"]:
         print("Firing off Salt State: ", saltStackStateToRun)
         session = requests.Session()
-        session.post('http://' + saltStacMaster + ':8000/login', json={
+        session.post('http://' + saltStackMaster + ':8000/login', json={
             'username': saltStackUser,
             'password': saltStackUser,
             'eauth': 'auto',
         })
-        resp = session.post('http://' + saltStacMaster + ':8000/login', json=[{
+        resp = session.post('http://' + saltStackMaster + ':8000/login', json=[{
             'client': 'local',
             'tgt': '*',
             'fun': 'state.orchestrate',
