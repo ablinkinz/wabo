@@ -41,10 +41,11 @@ def getAlertExists(verbose=False):
     alerts = getAlerts()
     flag = False
     for word in keyWords:
-        for alert in alerts:
-            alertType = alerts[alert]["eventType"]
-            if operator.contains(alertType, word):
-                flag = True
+        if alerts:
+            for alert in alerts:
+                alertType = alerts[alert]["eventType"]
+                if operator.contains(alertType, word):
+                    flag = True
     if verbose:
         return {"alertExists": flag, "Raw Message": alerts}
     else:
