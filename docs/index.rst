@@ -7,7 +7,7 @@ Welcome to WABO's documentation!
 ================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 8
    :caption: Contents:
 
 WABO is a tool designed to be a starting point for creating complex orchestrations
