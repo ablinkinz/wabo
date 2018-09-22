@@ -21,4 +21,4 @@ Indices and tables
 Readme File
 ===========
 
-.. mdinclude:: ../README.md
+.. mdinclude:: README1.md
