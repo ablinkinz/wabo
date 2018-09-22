@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>forecast.current</title>
+    <link rel="stylesheet" href="../../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for forecast.current</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">get current weather from openweathermap</span>
+<span class="sd">http://api.openweathermap.org/data/2.5/weather?zip=29483,us&amp;units=imperial&amp;APPID=dac78dd6b65aa85c4c2499d9872984db</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+
+<div class="viewcode-block" id="GetOpenWeatherCurrentWeather"><a class="viewcode-back" href="../../docs/source/forecast.xhtml#forecast.current.GetOpenWeatherCurrentWeather">[docs]</a><span class="k">class</span> <span class="nc">GetOpenWeatherCurrentWeather</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    if you want to import and call this in your own script you could call this like</span>
+<span class="sd">    this is currently not used 2018.09.14</span>
+<span class="sd">    ```&gt;&gt;&gt; currentConditions = getCurrentWeather()```</span>
+<span class="sd">    ```&gt;&gt;&gt; cityName = currentConditions.results()[&quot;name&quot;]```</span>
+<span class="sd">    ```&gt;&gt;&gt; print(cityName)```</span>
+<span class="sd">    ```Charleston```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getSettings</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weatherAPIKey</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;openWeatherMapAPIKey&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zipCode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;zipCode&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="GetOpenWeatherCurrentWeather.results"><a class="viewcode-back" href="../../docs/source/forecast.xhtml#forecast.current.GetOpenWeatherCurrentWeather.results">[docs]</a>    <span class="k">def</span> <span class="nf">results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://api.openweathermap.org/data/2.5/weather?zip=</span><span class="si">%s</span><span class="s2">,us&amp;units=</span><span class="si">%s</span><span class="s2">&amp;APPID=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zipCode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weatherAPIKey</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">data</span></div></div>
+
+
+<div class="viewcode-block" id="GetWeatherDotGovAlerts"><a class="viewcode-back" href="../../docs/source/forecast.xhtml#forecast.current.GetWeatherDotGovAlerts">[docs]</a><span class="k">class</span> <span class="nc">GetWeatherDotGovAlerts</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    get severe weather alerts from weather.gov</span>
+<span class="sd">    https://api.weather.gov/alerts/active?status=actual&amp;message_type=alert&amp;area=SC</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getSettings</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">coord</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="kn">import</span> <span class="nn">geo</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">coord</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">getCoord</span><span class="p">()</span>
+
+<div class="viewcode-block" id="GetWeatherDotGovAlerts.results"><a class="viewcode-back" href="../../docs/source/forecast.xhtml#forecast.current.GetWeatherDotGovAlerts.results">[docs]</a>    <span class="k">def</span> <span class="nf">results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.weather.gov/alerts/active?status=actual&amp;message_type=alert&amp;point=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">coord</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.weather.gov/alerts/active?status=actual&amp;message_type=alert&amp;area=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;User-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0&#39;</span><span class="p">})</span>
+        <span class="n">jsonResults</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">jsonResults</span></div></div>
+
+
+
+</pre></div>
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

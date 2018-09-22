@@ -1,0 +1,165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>geo.zip &#8212; WABO 0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for geo.zip</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">take a zip code and get the geo data</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">uszipcode</span> <span class="k">import</span> <span class="n">ZipcodeSearchEngine</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<div class="viewcode-block" id="zipToCoord"><a class="viewcode-back" href="../../docs/source/geo.html#geo.zip.zipToCoord">[docs]</a><span class="k">def</span> <span class="nf">zipToCoord</span><span class="p">(</span><span class="n">zipCode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    take zip code and convert them to a the coordinates</span>
+<span class="sd">    :param zipCode:</span>
+<span class="sd">    ``&gt;&gt;&gt;zipToCoord(29483)``</span>
+<span class="sd">    :return:</span>
+<span class="sd">    ``&gt;&gt;&gt;{&quot;City&quot;: &quot;Summerville&quot;, &quot;Density&quot;: 493.2076866223208, &quot;HouseOfUnits&quot;: 26575, &quot;LandArea&quot;: 135.3, &quot;Latitude&quot;: 33.0752648, &quot;Longitude&quot;: -80.20982190000001, &quot;NEBoundLatitude&quot;: 33.2421799, &quot;NEBoundLongitude&quot;: -80.06345400000002, &quot;Population&quot;: 66731, &quot;SWBoundLatitude&quot;: 32.966332, &quot;SWBoungLongitude&quot;: -80.31687190000001, &quot;State&quot;: &quot;SC&quot;, &quot;TotalWages&quot;: 998665611.0, &quot;WaterArea&quot;: 0.16, &quot;Wealthy&quot;: 14965.542416568012, &quot;Zipcode&quot;: &quot;29483&quot;, &quot;ZipcodeType&quot;: &quot;Standard&quot;}``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="n">ZipcodeSearchEngine</span><span class="p">()</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">by_zipcode</span><span class="p">(</span><span class="n">zipCode</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+<div class="viewcode-block" id="zipFromCityState"><a class="viewcode-back" href="../../docs/source/geo.html#geo.zip.zipFromCityState">[docs]</a><span class="k">def</span> <span class="nf">zipFromCityState</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param city:</span>
+<span class="sd">    :param state:</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="n">ZipcodeSearchEngine</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">search</span><span class="o">.</span><span class="n">by_city_and_state</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="getZipCode"><a class="viewcode-back" href="../../docs/source/geo.html#geo.zip.getZipCode">[docs]</a><span class="k">def</span> <span class="nf">getZipCode</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://ipinfo.io/json&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;User-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0&#39;</span><span class="p">})</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">IP</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ip&#39;</span><span class="p">]</span>
+    <span class="n">org</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;org&#39;</span><span class="p">]</span>
+    <span class="n">city</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span>
+    <span class="n">region</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">zipFromCityState</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span>
+    <span class="n">zipcode</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;Zipcode&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">zipcode</span></div>
+
+
+<div class="viewcode-block" id="getState"><a class="viewcode-back" href="../../docs/source/geo.html#geo.zip.getState">[docs]</a><span class="k">def</span> <span class="nf">getState</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://ipinfo.io/json&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;User-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0&#39;</span><span class="p">})</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">state</span></div>
+
+
+<div class="viewcode-block" id="getCoord"><a class="viewcode-back" href="../../docs/source/geo.html#geo.zip.getCoord">[docs]</a><span class="k">def</span> <span class="nf">getCoord</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://ipinfo.io/json&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;User-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0&#39;</span><span class="p">})</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">coord</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">coord</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">WABO</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Stephan Looney.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

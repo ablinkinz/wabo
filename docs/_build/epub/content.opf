@@ -12,8 +12,8 @@
     <dc:publisher>Stephan Looney</dc:publisher>
     <dc:rights>2018, Stephan Looney</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2018-09-22T10:34:29Z</dc:date>
-    <meta property="dcterms:modified">2018-09-22T10:34:29Z</meta>
+    <dc:date>2018-09-22T10:44:20Z</dc:date>
+    <meta property="dcterms:modified">2018-09-22T10:44:20Z</meta>
     <meta property="ibooks:version"></meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -25,37 +25,43 @@
     <item id="epub-0" href="genindex.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-1" href="index.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-2" href="py-modindex.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-3" href="_static/ajax-loader.gif" media-type="image/gif" />
-    <item id="epub-4" href="_static/basic.css" media-type="text/css" />
-    <item id="epub-5" href="_static/comment-bright.png" media-type="image/png" />
-    <item id="epub-6" href="_static/comment-close.png" media-type="image/png" />
-    <item id="epub-7" href="_static/comment.png" media-type="image/png" />
-    <item id="epub-8" href="_static/down-pressed.png" media-type="image/png" />
-    <item id="epub-9" href="_static/down.png" media-type="image/png" />
-    <item id="epub-10" href="_static/epub.css" media-type="text/css" />
-    <item id="epub-11" href="_static/file.png" media-type="image/png" />
-    <item id="epub-12" href="_static/minus.png" media-type="image/png" />
-    <item id="epub-13" href="_static/plus.png" media-type="image/png" />
-    <item id="epub-14" href="_static/pygments.css" media-type="text/css" />
-    <item id="epub-15" href="_static/up-pressed.png" media-type="image/png" />
-    <item id="epub-16" href="_static/up.png" media-type="image/png" />
-    <item id="epub-17" href="docs/source/alerts.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-18" href="docs/source/config.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-19" href="docs/source/forecast.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-20" href="docs/source/geo.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-21" href="docs/source/modules.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-22" href="docs/source/orchestrate.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-3" href="_modules/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-4" href="_modules/forecast/current.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-5" href="_modules/geo/zip.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-6" href="_static/ajax-loader.gif" media-type="image/gif" />
+    <item id="epub-7" href="_static/basic.css" media-type="text/css" />
+    <item id="epub-8" href="_static/comment-bright.png" media-type="image/png" />
+    <item id="epub-9" href="_static/comment-close.png" media-type="image/png" />
+    <item id="epub-10" href="_static/comment.png" media-type="image/png" />
+    <item id="epub-11" href="_static/down-pressed.png" media-type="image/png" />
+    <item id="epub-12" href="_static/down.png" media-type="image/png" />
+    <item id="epub-13" href="_static/epub.css" media-type="text/css" />
+    <item id="epub-14" href="_static/file.png" media-type="image/png" />
+    <item id="epub-15" href="_static/minus.png" media-type="image/png" />
+    <item id="epub-16" href="_static/plus.png" media-type="image/png" />
+    <item id="epub-17" href="_static/pygments.css" media-type="text/css" />
+    <item id="epub-18" href="_static/up-pressed.png" media-type="image/png" />
+    <item id="epub-19" href="_static/up.png" media-type="image/png" />
+    <item id="epub-20" href="docs/source/alerts.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-21" href="docs/source/config.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-22" href="docs/source/forecast.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-23" href="docs/source/geo.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-24" href="docs/source/modules.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-25" href="docs/source/orchestrate.xhtml" media-type="application/xhtml+xml" />
   </manifest>
   <spine toc="ncx" page-progression-direction="ltr">
     <itemref idref="epub-1" />
     <itemref idref="epub-2" />
     <itemref idref="epub-0" />
-    <itemref idref="epub-17" linear="no" />
-    <itemref idref="epub-18" linear="no" />
-    <itemref idref="epub-19" linear="no" />
+    <itemref idref="epub-3" linear="no" />
+    <itemref idref="epub-4" linear="no" />
+    <itemref idref="epub-5" linear="no" />
     <itemref idref="epub-20" linear="no" />
     <itemref idref="epub-21" linear="no" />
     <itemref idref="epub-22" linear="no" />
+    <itemref idref="epub-23" linear="no" />
+    <itemref idref="epub-24" linear="no" />
+    <itemref idref="epub-25" linear="no" />
   </spine>
   <guide>
     <reference type="toc" title="Table of Contents" href="index.xhtml" />
