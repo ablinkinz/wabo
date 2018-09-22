@@ -37,11 +37,41 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="forecast-current-module">
-<h2>forecast.current module<a class="headerlink" href="#forecast-current-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-forecast.current">
+<span id="forecast-current-module"></span><h2>forecast.current module<a class="headerlink" href="#module-forecast.current" title="Permalink to this headline">¶</a></h2>
+<p>get current weather from openweathermap
+<a class="reference external" href="http://api.openweathermap.org/data/2.5/weather?zip=29483,us&amp;units=imperial&amp;APPID=dac78dd6b65aa85c4c2499d9872984db">http://api.openweathermap.org/data/2.5/weather?zip=29483,us&amp;units=imperial&amp;APPID=dac78dd6b65aa85c4c2499d9872984db</a></p>
+<dl class="class">
+<dt id="forecast.current.GetOpenWeatherCurrentWeather">
+<em class="property">class </em><code class="descclassname">forecast.current.</code><code class="descname">GetOpenWeatherCurrentWeather</code><a class="reference internal" href="../../_modules/forecast/current.html#GetOpenWeatherCurrentWeather"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forecast.current.GetOpenWeatherCurrentWeather" title="Permalink to this definition">¶</a></dt>
+<dd><p>if you want to import and call this in your own script you could call this like
+this is currently not used 2018.09.14
+&gt;&gt;&gt; currentConditions = getCurrentWeather()
+&gt;&gt;&gt; cityName = currentConditions.results()[“name”]
+&gt;&gt;&gt; print(cityName)
+Charleston</p>
+<dl class="method">
+<dt id="forecast.current.GetOpenWeatherCurrentWeather.results">
+<code class="descname">results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/forecast/current.html#GetOpenWeatherCurrentWeather.results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forecast.current.GetOpenWeatherCurrentWeather.results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="forecast.current.GetWeatherDotGovAlerts">
+<em class="property">class </em><code class="descclassname">forecast.current.</code><code class="descname">GetWeatherDotGovAlerts</code><a class="reference internal" href="../../_modules/forecast/current.html#GetWeatherDotGovAlerts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forecast.current.GetWeatherDotGovAlerts" title="Permalink to this definition">¶</a></dt>
+<dd><p>get severe weather alerts from weather.gov
+<a class="reference external" href="https://api.weather.gov/alerts/active?status=actual&amp;message_type=alert&amp;area=SC">https://api.weather.gov/alerts/active?status=actual&amp;message_type=alert&amp;area=SC</a></p>
+<dl class="method">
+<dt id="forecast.current.GetWeatherDotGovAlerts.results">
+<code class="descname">results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/forecast/current.html#GetWeatherDotGovAlerts.results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forecast.current.GetWeatherDotGovAlerts.results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-forecast">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-forecast" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
