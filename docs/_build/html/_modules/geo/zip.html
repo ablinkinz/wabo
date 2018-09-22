@@ -43,9 +43,11 @@
 
 <div class="viewcode-block" id="zipToCoord"><a class="viewcode-back" href="../../docs/source/geo.html#geo.zip.zipToCoord">[docs]</a><span class="k">def</span> <span class="nf">zipToCoord</span><span class="p">(</span><span class="n">zipCode</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    take zip code and convert them to a zip code</span>
+<span class="sd">    take zip code and convert them to a the coordinates</span>
 <span class="sd">    :param zipCode:</span>
+<span class="sd">    ```&gt;&gt;&gt;zipToCoord(29483)</span>
 <span class="sd">    :return:</span>
+<span class="sd">    ```&gt;&gt;&gt;{&quot;City&quot;: &quot;Summerville&quot;, &quot;Density&quot;: 493.2076866223208, &quot;HouseOfUnits&quot;: 26575, &quot;LandArea&quot;: 135.3, &quot;Latitude&quot;: 33.0752648, &quot;Longitude&quot;: -80.20982190000001, &quot;NEBoundLatitude&quot;: 33.2421799, &quot;NEBoundLongitude&quot;: -80.06345400000002, &quot;Population&quot;: 66731, &quot;SWBoundLatitude&quot;: 32.966332, &quot;SWBoungLongitude&quot;: -80.31687190000001, &quot;State&quot;: &quot;SC&quot;, &quot;TotalWages&quot;: 998665611.0, &quot;WaterArea&quot;: 0.16, &quot;Wealthy&quot;: 14965.542416568012, &quot;Zipcode&quot;: &quot;29483&quot;, &quot;ZipcodeType&quot;: &quot;Standard&quot;}```</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">search</span> <span class="o">=</span> <span class="n">ZipcodeSearchEngine</span><span class="p">()</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">by_zipcode</span><span class="p">(</span><span class="n">zipCode</span><span class="p">)</span>
