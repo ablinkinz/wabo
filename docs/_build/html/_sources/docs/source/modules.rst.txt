@@ -9,4 +9,3 @@ wabo
    forecast
    geo
    orchestrate
-   test
