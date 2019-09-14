@@ -9,6 +9,7 @@ import requests
 import time
 import logging
 import config
+import json
 
 logging.basicConfig(level=logging.INFO)
 
@@ -38,7 +39,7 @@ def doWork():
             'fun': 'state.orchestrate',
             'arg': [saltStackStateToRun],
         }])
-        logging.info(resp)
+        logging.info(resp.json())
         return resp
     else:
         return {"status": "nothing to do"}
