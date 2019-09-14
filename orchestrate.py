@@ -26,7 +26,7 @@ def doWork():
     alertsRaw = alerts.getAlertExists(True)
     if alertsRaw["alertExists"]:
         logging.info("Firing off Salt State since I see an alert")
-        session = requests.Session()
+        session = requests.Session(verify=False)
         session.post('https://' + saltStackMaster + ':8000/login', json={
             'username': saltStackUser,
             'password': saltStackUser,
