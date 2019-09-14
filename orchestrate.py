@@ -17,7 +17,7 @@ def doWork():
     where we can put our work
     :return:
     """
-    logging.info("we have work to do")
+    logging.info("looking for applicable alerts")
     settings = config.getSettings()
     saltStackMaster = settings["saltStackMaster"]
     saltStackUser = settings["saltStackUser"]
