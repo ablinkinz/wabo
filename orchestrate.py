@@ -26,13 +26,13 @@ def doWork():
     alertsRaw = alerts.getAlertExists(True)
     if alertsRaw["alertExists"]:
         logging.info("Firing off Salt State since I see an alert")
-        session = requests.Session(verify=False)
-        session.post('https://' + saltStackMaster + ':8000/login', json={
+        session = requests.Session()
+        session.post('https://' + saltStackMaster + ':8000/login', verify=False, json={
             'username': saltStackUser,
             'password': saltStackUser,
             'eauth': 'auto',
         })
-        resp = session.post('https://' + saltStackMaster + ':8000/login', json=[{
+        resp = session.post('https://' + saltStackMaster + ':8000/login', verify=False, json=[{
             'client': 'local',
             'tgt': '*',
             'fun': 'state.orchestrate',
