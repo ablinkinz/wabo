@@ -6,7 +6,7 @@
     "saltStackStateToRun": "prod.masterConfig",
     "zipCode": "32754",
     "state": "",
-    "coord": "33.0975,-80.1753",
+    "coord": "28.2639,-80.7214",
     "units": "imperial",
     "alertEventTypeKeyWords": ["Hurricane", "Tropical", "Rip", "Flood"],
     "cadence": 1
