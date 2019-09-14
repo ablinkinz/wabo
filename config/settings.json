@@ -1,8 +1,8 @@
 {
     "openWeatherMapAPIKey": "PLACE KEY HERE",
     "saltStackMaster": "192.168.86.210",
-    "saltStackUser": "baduser",
-    "saltStackPass": "veryB@ddp@55",
+    "saltStackUser": "root",
+    "saltStackPass": "Monadc38()",
     "saltStackStateToRun": "prod.masterConfig",
     "zipCode": "32754",
     "state": "",
