@@ -10,12 +10,14 @@ import time
 import logging
 import config
 
+logging.basicConfig(level=logging.INFO)
 
 def doWork():
     """
     where we can put our work
     :return:
     """
+    logging.info("we have work to do")
     settings = config.getSettings()
     saltStackMaster = settings["saltStackMaster"]
     saltStackUser = settings["saltStackUser"]
@@ -40,7 +42,7 @@ def doWork():
     else:
         return {"status": "nothing to do"}
 
-logging.basicConfig(level=logging.INFO)
+
 while 1 > 0:
     settings = config.getSettings()
     cadence = settings["cadence"]
