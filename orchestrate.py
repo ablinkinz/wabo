@@ -38,6 +38,7 @@ def doWork():
             'fun': 'state.orchestrate',
             'arg': [saltStackStateToRun],
         }])
+        logging.info(resp)
         return resp
     else:
         return {"status": "nothing to do"}
